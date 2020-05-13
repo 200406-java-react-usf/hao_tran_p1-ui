@@ -70,7 +70,7 @@ window.onload = function() {
             cube.style.transition = "all 500ms";
             await timeout(50);
             cube.classList.add("cube-ready");
-            await timeout(250);
+            await timeout(750);
             let cube2 = document.getElementById("cube-inner");
             cube2.classList.add("pause");
             let currentPos2 = getComputedStyle(cube2).getPropertyValue("transform");
