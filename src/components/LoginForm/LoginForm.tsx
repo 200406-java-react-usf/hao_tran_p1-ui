@@ -18,7 +18,7 @@ function LoginForm(props: LoginProps) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const [errorMessage, setErrorMessage] = useState('Test message');
+    const [errorMessage, setErrorMessage] = useState(false);
 
     let updateUsername = (e: any) => {
         setUsername(e.currentTarget.value);
@@ -29,15 +29,29 @@ function LoginForm(props: LoginProps) {
     }
 
     let login = async (e: any) => {
-        // let authUser = await authenticate(username, password);
+
         // props.setAuthUser(authUser);
+        e.preventDefault()
+
+
+        await authenticate(username, password)
+            .then(response => {
+                console.log(response)
+                if (response.status === 200) {
+                    // update App.js state
+                    props.setAuthUser(response);
+                }
+            }).catch(error => {
+                setErrorMessage(true);
+            })
     }
 
-    let reset = async (e: any) => {
-        window.location.reload();
-    }
 
     return (
+        props.authUser ?
+        <Redirect to="/home" /> :
+        errorMessage ?
+        <Redirect to="/error" /> :
         <>
             <div >
                 <form className="form-body">

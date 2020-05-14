@@ -90,9 +90,9 @@
 
 .cube-inner {
     position: absolute;
-    top: -20px;
+    top: 0px;
     bottom: 0;
-    left: -20px;
+    left: 0px;
     right: 0;
     margin: auto;
     height: 300px;
@@ -111,7 +111,7 @@
     font-size: 1em;
     line-height: 1em;
     color: #fff;
-    border: 10px solid $blue;
+    border: 1px solid $blue;
     border-radius: 3px;
     user-select: none;
 }
