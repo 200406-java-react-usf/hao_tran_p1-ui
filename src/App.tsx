@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import './App.css';
-import { LoginComponent } from './components/loginComponent';
+
 import Entrance from './pages/Entrance';
 
 function App() {
+
+  // @ts-ignore
+  const [authUser, setAuthUser] = useState(null as User);
   return (
-    <Entrance />
+    <>
+      <Router>
+        <Switch>
+          <Route path="/" render={() => <Entrance authUser={authUser} setAuthUser={setAuthUser} />} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
