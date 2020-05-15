@@ -128,7 +128,7 @@ function Entrance() {
         transit.classList.remove("transit-wrapper-line");
         transit.classList.add("transit-wrapper-final3");
         viewport.classList.add("viewport-final");
-        await timeout(1000);
+        await timeout (1000);
 
     }
     const [transitFunction] = useState(() => {
