@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import "../style/entrance.scss";
-import LoginForm from '../components/LoginForm/LoginForm'
+import LoginForm from '../components/LoginForm/LoginFormContainer'
 import { User } from '../models/user';
 
-interface EntranceProps {
-    authUser: User;
-    setAuthUser: (user: User) => void;
-}
-function Entrance(props: EntranceProps) {
+function Entrance() {
     // @ts-ignore
     const [authUser, setAuthUser] = useState(null as User);
     const [readyState, setReadyState] = useState(false);
@@ -129,13 +125,13 @@ function Entrance(props: EntranceProps) {
                         <div id="cube-face-1" className="cube-face" onClick={loadAdmin}>
                             <div id='face1' className="cube-title hidden">ADMIN</div>
                             <div className="loginWrapper-ready hidden">
-                                <LoginForm resetFunction={resetFunction} authUser={authUser} setAuthUser={setAuthUser} />
+                                <LoginForm resetFunction={resetFunction}/>
                             </div>
                         </div>
                         <div id="cube-face-2" className="cube-face" onClick={loadManager}>
                             <div id='face2' className="cube-title hidden">MANAGER</div>
                             <div className="loginWrapper-ready hidden">
-                                <LoginForm resetFunction={resetFunction} authUser={authUser} setAuthUser={setAuthUser} />
+                                <LoginForm resetFunction={resetFunction}/>
                             </div>
                         </div>
                         <div id="cube-face-3" className="cube-face">
@@ -147,7 +143,7 @@ function Entrance(props: EntranceProps) {
                         <div id="cube-face-5" className="cube-face" onClick={loadEmployee}>
                             <div id='face6' className="cube-title hidden">EMPLOYEE</div>
                             <div className="loginWrapper-ready hidden">
-                                <LoginForm resetFunction={resetFunction} authUser={authUser} setAuthUser={setAuthUser}/>
+                                <LoginForm resetFunction={resetFunction}/>
                             </div>
                         </div>
                         <div id="cube-face-6" className="cube-face">

@@ -6,14 +6,16 @@ import { Alert } from '@material-ui/lab';
 import { authenticate } from '../../remote/auth-service';
 import { User } from '../../models/user';
 import { Redirect } from 'react-router-dom';
+import { loginAction } from '../../actions/login-action';
 
-interface LoginProps {
+interface ILoginProps {
     authUser: User;
-    setAuthUser: (user: User) => void;
+    errorMessage: string;
+    loginAction: (username: string, password: string) => void;
     resetFunction: any;
 }
 
-function LoginForm(props: LoginProps) {
+function LoginForm(props: ILoginProps) {
 
 
     const [username, setUsername] = useState('');
@@ -29,21 +31,7 @@ function LoginForm(props: LoginProps) {
     }
 
     let login = async (e: any) => {
-
-        // props.setAuthUser(authUser);
-        e.preventDefault()
-
-
-        await authenticate(username, password)
-            .then(response => {
-                console.log(response)
-                if (response.status === 200) {
-                    // update App.js state
-                    props.setAuthUser(response);
-                }
-            }).catch(error => {
-                setErrorMessage(true);
-            })
+        props.loginAction(username, password);
     }
 
 

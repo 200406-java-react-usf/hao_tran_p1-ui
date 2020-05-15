@@ -5,6 +5,8 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
+import { Provider } from 'react-redux';
+import { store } from './Store';
 
 import Entrance from './pages/Entrance';
 
@@ -14,11 +16,13 @@ function App() {
   const [authUser, setAuthUser] = useState(null as User);
   return (
     <>
+    <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/" render={() => <Entrance authUser={authUser} setAuthUser={setAuthUser} />} />
+          <Route path="/" render={() => <Entrance/>} />
         </Switch>
       </Router>
+      </Provider>
     </>
   );
 }
