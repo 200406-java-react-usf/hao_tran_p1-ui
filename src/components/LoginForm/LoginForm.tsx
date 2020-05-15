@@ -13,6 +13,7 @@ interface ILoginProps {
     errorMessage: string;
     loginAction: (username: string, password: string) => void;
     resetFunction: any;
+    transitFunction: any;
 }
 
 function LoginForm(props: ILoginProps) {
@@ -31,7 +32,8 @@ function LoginForm(props: ILoginProps) {
     }
 
     let login = async (e: any) => {
-        props.loginAction(username, password);
+        props.transitFunction(e);
+        //props.loginAction(username, password);
     }
 
 

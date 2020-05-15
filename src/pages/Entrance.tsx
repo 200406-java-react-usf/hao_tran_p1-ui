@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import "../style/entrance.scss";
 import LoginForm from '../components/LoginForm/LoginFormContainer'
 import { User } from '../models/user';
+import { Hidden } from '@material-ui/core';
 
 function Entrance() {
-    // @ts-ignore
-    const [authUser, setAuthUser] = useState(null as User);
     const [readyState, setReadyState] = useState(false);
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -97,9 +96,48 @@ function Entrance() {
     const [resetFunction] = useState(() => {
         return reset
     })
+    const closeMenu = async (e: any) => {
+        e.stopPropagation();
+        let cube = document.getElementById("cube") as HTMLDivElement;
+        let cube2 = document.getElementById("cube-inner") as HTMLDivElement;
+        let transit = document.getElementById("transit") as HTMLDivElement;
+        let viewport = document.getElementById("viewport-cube") as HTMLDivElement;
+
+        cube.classList.add("hidden");
+        cube2.classList.add("hidden");
+        transit.classList.remove("transit-wrapper-inactive");
+        transit.classList.remove("hidden");
+        transit.classList.add("transit-wrapper-active");
+ 
+        await timeout(500);
+        transit.classList.remove("transit-wrapper-active");
+        transit.classList.add("transit-wrapper-final1");
+        viewport.classList.remove("shadow");
+        viewport.classList.add("viewport-square");
+        await timeout(500);
+        viewport.classList.add("viewport-line");
+        await timeout(500);
+        transit.classList.remove("transit-wrapper-final1");
+        transit.classList.add("transit-wrapper-final2");
+        await timeout(500);
+        transit.classList.remove("transit-wrapper-final2");
+        transit.classList.add("transit-wrapper-line");
+
+        await timeout(750);
+
+        transit.classList.remove("transit-wrapper-line");
+        transit.classList.add("transit-wrapper-final3");
+        viewport.classList.add("viewport-final");
+        await timeout(1000);
+
+    }
+    const [transitFunction] = useState(() => {
+        return closeMenu
+    })
     return (
         <>
             <div className="wrapper">
+                <div id="transit" className="transit-wrapper-inactive"></div>
                 <div id="viewport-cube" className="viewport" onClick={stopAni}>
                     <div id="cube-inner" className="cube-inner  cube-ani-2">
                         <div id="cube-face-1-a" className="cube-face-inner">
@@ -125,13 +163,13 @@ function Entrance() {
                         <div id="cube-face-1" className="cube-face" onClick={loadAdmin}>
                             <div id='face1' className="cube-title hidden">ADMIN</div>
                             <div className="loginWrapper-ready hidden">
-                                <LoginForm resetFunction={resetFunction}/>
+                                <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>
                         </div>
                         <div id="cube-face-2" className="cube-face" onClick={loadManager}>
                             <div id='face2' className="cube-title hidden">MANAGER</div>
                             <div className="loginWrapper-ready hidden">
-                                <LoginForm resetFunction={resetFunction}/>
+                                <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>
                         </div>
                         <div id="cube-face-3" className="cube-face">
@@ -143,7 +181,7 @@ function Entrance() {
                         <div id="cube-face-5" className="cube-face" onClick={loadEmployee}>
                             <div id='face6' className="cube-title hidden">EMPLOYEE</div>
                             <div className="loginWrapper-ready hidden">
-                                <LoginForm resetFunction={resetFunction}/>
+                                <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>
                         </div>
                         <div id="cube-face-6" className="cube-face">
@@ -152,7 +190,7 @@ function Entrance() {
                     </div>
 
                 </div>
-                <div className="transit-wrapper-inactive hidden"></div>
+
             </div>
         </>
     );

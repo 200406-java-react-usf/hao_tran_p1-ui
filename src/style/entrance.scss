@@ -4,8 +4,6 @@
     width: 550px;
     height: 550px;
     border-radius: 50%;
-    border-style: solid;
-    border-width: 2px;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
     top: 0;
@@ -13,8 +11,29 @@
     left: 0;
     right: 0;
     margin: auto;
-    border: 10px solid $blue;
+    border: 5px solid $blue;
     transition: all 500ms linear;
+}
+
+.viewport-square {
+    border-radius: 3px !important;
+    transition: all 500ms linear;
+}
+
+.viewport-line {
+    height: 90%;
+    width: 0px;
+    border-top: 5px solid $blue;
+    border-bottom: 5px solid $blue;
+    transition: all 500ms linear;
+}
+
+.viewport-final {
+    height: 95%;
+    width: 95%;
+    border-top: 5px solid $blue;
+    border-bottom: 5px solid $blue;
+    transition: all 1000ms linear;
 }
 
 .cube {
@@ -209,13 +228,88 @@
     right: 0;
     height: 0px;
     width: 0px;
-    background-color: rgb(187, 57, 57, 0.5);
-    font-size: 1em;
-    line-height: 1em;
-    color: #fff;
+    background-color: $background;
     border: 5px solid $blue;
     border-radius: 3px;
     user-select: none;
-    opacity: 1;
+    opacity: 0;
     transition: all 500ms linear;
+}
+
+.transit-wrapper-active {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 300px;
+    background-color: $background;
+    border: 5px solid $blue;
+    opacity: 1;
+    z-index: 1;
+    transition: all 500ms linear;
+}
+
+.transit-wrapper-final1 {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 300px;
+    border: 5px solid $blue;
+    opacity: 1;
+    z-index: 1;
+    transform: rotateZ(45deg);
+    transition: all 500ms linear;
+}
+
+.transit-wrapper-final2 {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 300px;
+    border: 5px solid $blue;
+    opacity: 1;
+    z-index: 1;
+    transform: rotateZ(0deg);
+    transition: all 500ms linear;
+}
+
+.transit-wrapper-line {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0px;
+    width: 90%;
+    border: 5px solid $blue;
+    opacity: 1;
+    z-index: 1;
+    transition: all 500ms linear;
+}
+
+.transit-wrapper-final3 {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90%;
+    width: 90%;
+    border: 5px solid $blue;
+    opacity: 1;
+    z-index: 1;
+    transition: all 1000ms linear;
 }
