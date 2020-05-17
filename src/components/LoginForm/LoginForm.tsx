@@ -32,8 +32,9 @@ function LoginForm(props: ILoginProps) {
     }
 
     let login = async (e: any) => {
+        console.log("UN: "+username+" PW: "+password)
         props.transitFunction(e);
-        //props.loginAction(username, password);
+        props.loginAction(username, password);
     }
 
 
