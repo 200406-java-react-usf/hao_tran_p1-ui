@@ -13,7 +13,7 @@ import Entrance from './pages/Entrance';
 function App() {
 
   // @ts-ignore
-  const [authUser, setAuthUser] = useState(null as User);
+  //const [authUser, setAuthUser] = useState(null as User);
   return (
     <>
     <Provider store={store}>
