@@ -15,4 +15,4 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync ./build s3://hao-tran-p1-api
+      - aws s3 sync ./build s3://hao-tran-p1-ui
