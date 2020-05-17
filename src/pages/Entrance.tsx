@@ -3,6 +3,9 @@ import "../style/entrance.scss";
 import LoginForm from '../components/LoginForm/LoginFormContainer'
 import { User } from '../models/user';
 import { Hidden } from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
+
+
 
 function Entrance() {
     const [readyState, setReadyState] = useState(false);
@@ -17,8 +20,6 @@ function Entrance() {
         let face2 = document.getElementById("face2") as HTMLDivElement;
         let face6 = document.getElementById("face6") as HTMLDivElement;
         await timeout(500);
-
-        viewport.classList.add("shadow")
         cube.classList.add("pause");
         let currentPos1 = getComputedStyle(cube).getPropertyValue("transform");
         cube.classList.remove("cube-ani-1");
@@ -96,6 +97,7 @@ function Entrance() {
     const [resetFunction] = useState(() => {
         return reset
     })
+    const [redirect, setRedirect] = useState(false);
     const closeMenu = async (e: any) => {
         e.stopPropagation();
         let cube = document.getElementById("cube") as HTMLDivElement;
@@ -112,7 +114,6 @@ function Entrance() {
         await timeout(500);
         transit.classList.remove("transit-wrapper-active");
         transit.classList.add("transit-wrapper-final1");
-        viewport.classList.remove("shadow");
         viewport.classList.add("viewport-square");
         await timeout(500);
         viewport.classList.add("viewport-line");
@@ -129,34 +130,33 @@ function Entrance() {
         transit.classList.add("transit-wrapper-final3");
         viewport.classList.add("viewport-final");
         await timeout (1000);
-
+        setRedirect(true);
     }
     const [transitFunction] = useState(() => {
         return closeMenu
     })
     return (
         <>
+        {redirect ? <Redirect to = "/roledisplay"/> : null}
             <div className="wrapper">
-                <div id="transit" className="transit-wrapper-inactive"></div>
-                <div id="viewport-cube" className="viewport" onClick={stopAni}>
+                <div id="transit" className="transit-wrapper-inactive  neon"></div>
+                <div id="viewport-cube" className="viewport neon" onClick={stopAni}>
                     <div id="cube-inner" className="cube-inner  cube-ani-2">
-                        <div id="cube-face-1-a" className="cube-face-inner">
-                            1-a
+                        <div id="cube-face-1-a" className="cube-face-inner neon">
+
                             </div>
-                        <div id="cube-face-2-a" className="cube-face-inner">
-                            2-a
+                        <div id="cube-face-2-a" className="cube-face-inner neon">
+
                             </div>
-                        <div id="cube-face-3-a" className="cube-face-inner">
-                            3-a
+                        <div id="cube-face-3-a" className="cube-face-inner neon">
+
                             </div>
-                        <div id="cube-face-4-a" className="cube-face-inner">
-                            4-a
+                        <div id="cube-face-4-a" className="cube-face-inner neon">
+
                             </div>
-                        <div id="cube-face-5-a" className="cube-face-inner">
-                            5-a
+                        <div id="cube-face-5-a" className="cube-face-inner neon">
                             </div>
-                        <div id="cube-face-6-a" className="cube-face-inner">
-                            6-a
+                        <div id="cube-face-6-a" className="cube-face-inner neon">
                         </div>
                     </div>
                     <div id="cube" className="cube cube-ani-1">
@@ -166,26 +166,26 @@ function Entrance() {
                                 <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>
                         </div>
-                        <div id="cube-face-2" className="cube-face" onClick={loadManager}>
+                        <div id="cube-face-2" className="cube-face neon" onClick={loadManager}>
                             <div id='face2' className="cube-title hidden">MANAGER</div>
                             <div className="loginWrapper-ready hidden">
                                 <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>
                         </div>
-                        <div id="cube-face-3" className="cube-face">
-                            3
+                        <div id="cube-face-3" className="cube-face neon">
+
                         </div>
-                        <div id="cube-face-4" className="cube-face">
-                            4
+                        <div id="cube-face-4" className="cube-face neon">
+
                         </div>
-                        <div id="cube-face-5" className="cube-face" onClick={loadEmployee}>
+                        <div id="cube-face-5" className="cube-face neon" onClick={loadEmployee}>
                             <div id='face6' className="cube-title hidden">EMPLOYEE</div>
-                            <div className="loginWrapper-ready hidden">
+                            <div className="loginWrapper-ready hidden  neon">
                                 <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>
                         </div>
-                        <div id="cube-face-6" className="cube-face">
-                            6
+                        <div id="cube-face-6" className="cube-face neon">
+
                         </div>
                     </div>
 

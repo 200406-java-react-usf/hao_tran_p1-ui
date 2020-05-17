@@ -11,7 +11,7 @@
     left: 0;
     right: 0;
     margin: auto;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     transition: all 500ms linear;
 }
 
@@ -23,16 +23,16 @@
 .viewport-line {
     height: 90%;
     width: 0px;
-    border-top: 5px solid $blue;
-    border-bottom: 5px solid $blue;
+    border-top: 5px solid $white;
+    border-bottom: 5px solid $white;
     transition: all 500ms linear;
 }
 
 .viewport-final {
     height: 95%;
     width: 95%;
-    border-top: 5px solid $blue;
-    border-bottom: 5px solid $blue;
+    border-top: 5px solid $white;
+    border-bottom: 5px solid $white;
     transition: all 1000ms linear;
 }
 
@@ -74,11 +74,9 @@
     position: absolute;
     height: 300px;
     width: 300px;
-    background-color: rgba(50, 50, 50, 0.5);
     font-size: 1em;
     line-height: 1em;
-    color: #fff;
-    border: 1px solid $blue;
+    border: 1px solid $white;
     border-radius: 3px;
     user-select: none;
 }
@@ -126,11 +124,9 @@
     top: 50px;
     left: 50px;
     padding: 10px;
-    background-color: rgba(50, 50, 50, 0.5);
     font-size: 1em;
     line-height: 1em;
-    color: #fff;
-    border: 1px solid $blue;
+    border: 1px solid $white;
     border-radius: 3px;
     user-select: none;
 }
@@ -229,7 +225,7 @@
     height: 0px;
     width: 0px;
     background-color: $background;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     border-radius: 3px;
     user-select: none;
     opacity: 0;
@@ -246,7 +242,7 @@
     height: 300px;
     width: 300px;
     background-color: $background;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     opacity: 1;
     z-index: 1;
     transition: all 500ms linear;
@@ -261,7 +257,7 @@
     right: 0;
     height: 300px;
     width: 300px;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     opacity: 1;
     z-index: 1;
     transform: rotateZ(45deg);
@@ -277,7 +273,7 @@
     right: 0;
     height: 300px;
     width: 300px;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     opacity: 1;
     z-index: 1;
     transform: rotateZ(0deg);
@@ -293,7 +289,7 @@
     right: 0;
     height: 0px;
     width: 90%;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     opacity: 1;
     z-index: 1;
     transition: all 500ms linear;
@@ -308,7 +304,7 @@
     right: 0;
     height: 90%;
     width: 90%;
-    border: 5px solid $blue;
+    border: 1px solid $white;
     opacity: 1;
     z-index: 1;
     transition: all 1000ms linear;

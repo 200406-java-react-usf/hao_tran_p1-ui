@@ -39,13 +39,9 @@ function LoginForm(props: ILoginProps) {
 
 
     return (
-        props.authUser ?
-        <Redirect to="/home" /> :
-        errorMessage ?
-        <Redirect to="/error" /> :
         <>
             <div >
-                <form className="form-body">
+                <form className="form-body neon-inner">
                     <div className="form-title">USERNAME</div>
                     <input className="form-input"
                         onChange={updateUsername}
@@ -60,8 +56,8 @@ function LoginForm(props: ILoginProps) {
                         id="password" type="password"
                         placeholder="Enter your password" />
                     <div className="button-container form-title">
-                        <span id="submit-button" className="login-botton" onClick={login}>LOGIN</span>
-                        <span id="reset-button" className="login-botton" onClick={props.resetFunction}>CANCEL</span>
+                        <span id="submit-button" className="login-botton neon" onClick={login}>LOGIN</span>
+                        <span id="reset-button" className="login-botton neon" onClick={props.resetFunction}>CANCEL</span>
                     </div>
                 </form>
             </div>

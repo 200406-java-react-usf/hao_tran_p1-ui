@@ -1,4 +1,5 @@
 $blue: rgb(51, 79, 141);
+$white: rgb(226, 230, 240);
 $white-shadow: rgba(184, 239, 255, 0.6);
 $background: rgba(0, 0, 0);
 body {
@@ -27,5 +28,20 @@ body {
 
 .hidden {
     opacity: 0 !important;
+    transition: all 500ms linear;
+}
+
+.neon {
+    color: $white;
+    box-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue;
+    box-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue inset;
+    // text-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue;
+    transition: all 500ms linear;
+}
+
+.neon-inner {
+    color: $white;
+    box-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue inset;
+    // text-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue;
     transition: all 500ms linear;
 }
