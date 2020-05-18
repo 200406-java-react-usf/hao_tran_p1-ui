@@ -1,0 +1,54 @@
+@import "main";
+.outer-frame {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid $white;
+    height: 95%;
+    width: 95%;
+}
+
+.inner-frame {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90%;
+    width: 90%;
+    border: 1px solid $white;
+    opacity: 1;
+    z-index: 1;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+}
+
+.loadingScreen-title {
+    position: absolute;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    top: 15%;
+    background-color: red;
+    font-size: 50px;
+    line-height: 100px;
+}
+
+.loadingScreen-role {
+    position: absolute;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    top: 30%;
+    background-color: red;
+    font-size: 50px;
+    line-height: 100px;
+}

@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 
 import Entrance from './pages/Entrance';
-import RoleDisplay from './pages/RoleDisplay';
+import RoleDisplayPage from './pages/RoleDisplay';
 import Testing from './pages/test';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" render={() => <Entrance/>} />
-          <Route path="/roledisplay" render={() => <RoleDisplay/>} />
+          <Route path="/roledisplay" render={() => <RoleDisplayPage/>} />
           <Route path="/test" render={() => <Testing/>} />
         </Switch>
       </Router>

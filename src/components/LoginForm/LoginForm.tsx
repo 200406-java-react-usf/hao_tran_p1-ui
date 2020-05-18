@@ -4,7 +4,7 @@ import "../../style/login.scss";
 import { Alert } from '@material-ui/lab';
 
 import { authenticate } from '../../remote/auth-service';
-import { User } from '../../models/user';
+import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 import { loginAction } from '../../actions/login-action';
 
@@ -32,9 +32,8 @@ function LoginForm(props: ILoginProps) {
     }
 
     let login = async (e: any) => {
-        console.log("UN: "+username+" PW: "+password)
         props.transitFunction(e);
-        props.loginAction(username, password);
+        // props.loginAction(username, password);
     }
 
 

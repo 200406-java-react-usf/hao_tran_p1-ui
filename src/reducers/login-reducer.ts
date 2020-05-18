@@ -1,6 +1,6 @@
   
 import { ILoginState } from ".";
-import { User } from "../models/user";
+import { User } from "../dtos/user";
 import { AnyAction, combineReducers } from "redux";
 import { loginActionTypes } from "../actions/login-action";
 

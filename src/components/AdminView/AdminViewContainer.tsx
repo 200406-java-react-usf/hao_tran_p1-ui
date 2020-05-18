@@ -1,6 +1,6 @@
 import { IState } from "../../reducers";
 import { connect } from "react-redux";
-import RoleDisplay from "./RoleDisplay";
+import AdminView from "./AdminView";
 
 const mapStateToProps = (state: IState) => {
     return {
@@ -11,4 +11,4 @@ const mapStateToProps = (state: IState) => {
 
 
 
-export default connect(mapStateToProps)(RoleDisplay);
+export default connect(mapStateToProps)(AdminView);

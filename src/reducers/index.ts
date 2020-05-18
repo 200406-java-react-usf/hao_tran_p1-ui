@@ -1,4 +1,4 @@
-import { User } from "../models/user";
+import { User } from "../dtos/user";
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
 

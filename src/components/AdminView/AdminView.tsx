@@ -1,19 +1,17 @@
 
 import React, { useState } from 'react';
-import "../../style/login.scss";
+import "../../style/admin.scss";
 import { Alert } from '@material-ui/lab';
 
 import { authenticate } from '../../remote/auth-service';
-import { User } from '../../models/user';
+import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 
 interface AdminProps {
     authUser: User;
-    setAuthUser: (user: User) => void;
-    resetFunction: any;
 }
 
-function LoginForm(props: AdminProps) {
+function AdminView(props: AdminProps) {
 
     // @ts-ignore
     const [UserOnEdit, setUserOnEdit] = useState(null as User);
@@ -149,4 +147,4 @@ function LoginForm(props: AdminProps) {
 
 }
 
-export default LoginForm;
+export default AdminView;

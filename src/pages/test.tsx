@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { User } from '../models/user';
+import { User } from '../dtos/user';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 

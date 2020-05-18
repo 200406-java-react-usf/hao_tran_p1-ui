@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "../style/entrance.scss";
 import LoginForm from '../components/LoginForm/LoginFormContainer'
-import { User } from '../models/user';
+import { User } from '../dtos/user';
 import { Hidden } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 
