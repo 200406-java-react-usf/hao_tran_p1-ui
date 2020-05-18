@@ -1,16 +1,15 @@
-import { Reimb } from "../dtos/reimb"
+import { User } from "../dtos/user"
 import { AnyAction } from "redux"
-import { loginActionTypes } from "../actions/login-action"
 import { registerActionTypes } from "../actions/register-action"
-import { reimbActionTypes } from "../actions/reimb-action"
-import { IReimbState } from "."
+import { IRegisterState } from "."
 
-const initialState: IReimbState = {
+const initialState: IRegisterState = {
     // @ts-ignore
-    reimb: (null as Reimb),
+    authUser: (null as User),
+    errorMessage: ''
 }
 
-export const reimbReducer = (state: IReimbState = initialState, action: AnyAction) => {
+export const registerReducer = (state: IRegisterState = initialState, action: AnyAction) => {
 
     switch (action.type) {
         case registerActionTypes.SUCCESSFUL_REGISTRATION:

@@ -79,7 +79,7 @@ function RoleDisplay(props: IRoleProps) {
                 add new user
                 update user
                 delete user
-                <AdminView/>
+                {/* <AdminView/> */}
             </div>
             <div id="managerScreen" className="screen disabled">
                 manager

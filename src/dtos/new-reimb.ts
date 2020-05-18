@@ -1,4 +1,4 @@
-export class Reimb {
+export class NewReimb {
 
     amount: number;
     submitted: Date;
@@ -11,7 +11,6 @@ export class Reimb {
     constructor(
         am: number,
         sub: Date,
-        res: Date,
         des: string,
         rec: any,
         auth: string,
