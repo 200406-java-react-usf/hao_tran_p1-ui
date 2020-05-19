@@ -76,10 +76,7 @@ function RoleDisplay(props: IRoleProps) {
                 <div id="loadingScreen-role" className="loadingScreen-role" onClick={showAccess}></div>
             </div>
             <div id="adminScreen" className="screen disabled">
-                add new user
-                update user
-                delete user
-                {/* <AdminView/> */}
+                <AdminView/>
             </div>
             <div id="managerScreen" className="screen disabled">
                 manager

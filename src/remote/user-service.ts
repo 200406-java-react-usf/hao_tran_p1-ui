@@ -26,3 +26,7 @@ export async function updateUser(updatedUser: User) {
 export async function deleteUserById(id: number) {
     return await Client.delete(`/users/${id}`);
 }
+
+export async function addNewUser(newUser: User) {
+    return await Client.put(`/users/new`, newUser);
+}
