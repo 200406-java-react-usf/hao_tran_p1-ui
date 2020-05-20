@@ -20,7 +20,7 @@ export async function getUserByUniqueKey(key: string, value: string) {
 }
 
 export async function updateUser(updatedUser: User) {
-    return await Client.put('/users', updatedUser);
+    return await Client.post('/users/update', updatedUser);
 }
 
 export async function deleteUserById(id: number) {
@@ -28,5 +28,5 @@ export async function deleteUserById(id: number) {
 }
 
 export async function addNewUser(newUser: User) {
-    return await Client.put(`/users/new`, newUser);
+    return await Client.post(`/users/new`, newUser);
 }

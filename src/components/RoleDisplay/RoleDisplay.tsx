@@ -79,7 +79,7 @@ function RoleDisplay(props: IRoleProps) {
                 <AdminView/>
             </div>
             <div id="managerScreen" className="screen disabled">
-                manager
+                <AdminView/>
             </div>
             <div id="employeeScreen" className="screen disabled">
                 employee

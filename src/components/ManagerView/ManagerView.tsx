@@ -6,7 +6,6 @@ import { getUserByUniqueKey } from "../../remote/user-service"
 
 import { addNewUser, updateUser, deleteUserById } from '../../remote/user-service';
 import { User } from '../../dtos/user';
-import { NewUser } from '../../dtos/new-user';
 import { Redirect } from 'react-router-dom';
 import { searchUseAction } from '../../actions/search-user-action';
 

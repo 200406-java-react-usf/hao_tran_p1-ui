@@ -1,4 +1,10 @@
 @import "main";
+.wrapper {
+    display: block;
+    margin: auto;
+    width: 56%;
+}
+
 .user-bar {
     background-color: $transparent;
     margin: 10px;
@@ -14,6 +20,7 @@
     margin: 10px;
     text-align: center;
     line-height: 30px;
+    user-select: none;
 }
 
 .search-btn {
@@ -27,6 +34,7 @@
     line-height: 30px;
     border: solid 1px $white;
     border-radius: 3px;
+    user-select: none;
 }
 
 .search-btn:hover {
@@ -56,6 +64,7 @@
     line-height: 50px;
     border: solid 1px $white;
     border-radius: 3px;
+    user-select: none;
 }
 
 .action-btn-selected {
@@ -68,15 +77,16 @@
     border: solid 1px $white;
     margin: 10px;
     margin-left: 30px;
-    margin-right: 30px;
     padding: 10px;
     height: 430px;
+    width: 605px;
 }
 
 .table-row {
     background-color: $transparent;
     margin: 10px;
     height: 50px;
+    transition: all 500ms linear;
 }
 
 .table-row>div {
@@ -95,6 +105,7 @@
     line-height: 50px;
     border: solid 1px $white;
     border-radius: 3px;
+    user-select: none;
 }
 
 .submit-btn:hover {

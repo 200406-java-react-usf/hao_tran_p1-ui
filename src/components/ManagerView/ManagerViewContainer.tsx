@@ -1,6 +1,6 @@
 import { IState } from "../../reducers";
 import { connect } from "react-redux";
-import AdminView from "./AdminView";
+import ManagerView from "./ManagerView";
 import { searchUseAction } from "../../actions/search-user-action";
 
 const mapStateToProps = (state: IState) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(AdminView);
+export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(ManagerView);
