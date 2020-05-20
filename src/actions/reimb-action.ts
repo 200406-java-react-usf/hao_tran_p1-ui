@@ -19,10 +19,6 @@ export const reimbAction = (newUser: NewUser) => async (dispatch: Dispatch) => {
             payload: registeredUser
         });
         
-        dispatch({
-            type: loginActionTypes.SUCCESSFUL_LOGIN,
-            payload: registeredUser
-        });
 
     } catch (e) {
 
