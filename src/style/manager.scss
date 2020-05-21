@@ -1,0 +1,187 @@
+@import "main";
+.reimb-action-btn {
+    background-color: $transparent;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 50px;
+    border: solid 1px $white;
+    border-radius: 3px;
+}
+
+.reimb-action-btn:hover {
+    background-color: $white;
+    color: $blue !important;
+}
+
+.reimb-action-btn:hover .dropdown-option {
+    display: block;
+}
+
+.filterText {
+    display: block;
+    width: 200px;
+    margin: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    user-select: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $background;
+    width: 200px;
+    z-index: 1;
+}
+
+.dropdown-content .dropdown-option {
+    color: $white;
+    border: solid 1px $white;
+    display: block;
+}
+
+.dropdown-content .dropdown-option:hover {
+    background-color: $background;
+}
+
+.reimb-action-btn:hover .dropdown-content {
+    display: block;
+}
+
+.reimb-container {
+    background-color: $transparent;
+    margin: 5px;
+    padding: 0px;
+    height: 30px;
+}
+
+.reimb-container>.reimb {
+    display: inline-block;
+    background-color: $transparent;
+    margin-right: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    text-align: center;
+    border: solid 1px $white;
+}
+
+.reimb-container>.reimb-short {
+    display: inline-block;
+    background-color: $transparent;
+    margin-right: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    text-align: center;
+    border: solid 1px $white;
+}
+
+.reimb-table {
+    display: inline-block;
+    background-color: $transparent;
+    border: solid 1px $white;
+    margin: 10px;
+    margin-left: 30px;
+    padding: 10px;
+    height: 430px;
+    width: 760px;
+}
+
+.reimb-detail {
+    display: inline-block;
+    position: absolute;
+    background-color: $transparent;
+    border: solid 1px $white;
+    margin: 10px;
+    margin-left: 30px;
+    padding: 10px;
+    height: 430px;
+    width: 760px;
+}
+
+.detail-row {
+    display: block;
+    background-color: $transparent;
+    margin: 10px;
+    padding: 5px;
+    height: 30px;
+    transition: all 500ms linear;
+}
+
+.detail-row>.reimb {
+    display: inline-block;
+    background-color: $transparent;
+    margin-right: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    text-align: center;
+    border: solid 1px $white;
+}
+
+.detail-description {
+    background-color: $transparent;
+    margin: 10px;
+    width: 730px;
+    height: 100px;
+    border: solid 1px $white;
+}
+
+.action-row {
+    display: block;
+    position: absolute;
+    background-color: $transparent;
+    margin: 15px;
+    margin-top: 300px;
+    padding: 5px;
+    height: 50px;
+    width: 720px;
+    transition: all 500ms linear;
+}
+
+.reimb-submit-btn {
+    background-color: $transparent;
+    float: right;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 50px;
+    border: solid 1px $white;
+    border-radius: 3px;
+    user-select: none;
+}
+
+.reimb-submit-btn:hover {
+    background-color: $white;
+}
+
+.reimb-bar {
+    display: block;
+    position: absolute;
+    background-color: $transparent;
+    margin: 30px;
+    margin-top: 10px;
+    height: 50px;
+    width: 780px;
+    transition: all 500ms linear;
+}
+
+.reimb-home-btn {
+    background-color: $transparent;
+    display: block;
+    float: right;
+    width: 200px;
+    height: 50px;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 50px;
+    border: solid 1px $white;
+    border-radius: 3px;
+    user-select: none;
+}

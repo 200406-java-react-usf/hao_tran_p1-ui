@@ -215,6 +215,10 @@
     transition: all 500ms linear;
 }
 
+.special-employee {
+    transform: rotateZ(-45deg);
+}
+
 .transit-wrapper-inactive {
     position: absolute;
     margin: auto;

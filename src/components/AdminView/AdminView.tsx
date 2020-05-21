@@ -27,6 +27,8 @@ function AdminView(props: AdminProps) {
 
     //@ts-ignore
     let mockUser = new User("", '', '', '', '', '', '');
+
+    // not used
     //const [UserOnEdit, setUserOnEdit] = useState(props.searchUser);
     const [UserOnEdit, setUserOnEdit] = useState(mockUser);
 
@@ -184,18 +186,18 @@ function AdminView(props: AdminProps) {
         switch (currentAction) {
             case "addnew":
                 let newUser = new User(0, username, userpassword, firstName, lastName, email, role_name);
-                //await addNewUser(newUser);
+                await addNewUser(newUser);
                 refreshForm();
                 setcurrentAction("");
                 break;
             case "update":
                 let updatedUser = new User(UserOnEdit.ers_user_id, username, userpassword, firstName, lastName, email, role_name);
-                //await updateUser(updatedUser);
+                await updateUser(updatedUser);
                 refreshForm();
                 setcurrentAction("");
                 break;
             case "delete":
-                //await deleteUserById(UserOnEdit.ers_user_id);
+                await deleteUserById(UserOnEdit.ers_user_id);
                 refreshForm();
                 setcurrentAction("");
                 break;

@@ -5,14 +5,15 @@ import { Alert } from '@material-ui/lab';
 import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 import AdminView from '../AdminView/AdminViewContainer'
+import ManagerView from '../ManagerView/ManagerViewContainer'
 
 interface IRoleProps {
     authUser: User;
 }
 
 function RoleDisplay(props: IRoleProps) {
-    //const [roleName] = useState(props.authUser.role_name);
-    const [roleName] = useState("admin");
+    const [roleName] = useState(props.authUser.role_name);
+    //const [roleName] = useState("manager");
 
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -79,7 +80,7 @@ function RoleDisplay(props: IRoleProps) {
                 <AdminView/>
             </div>
             <div id="managerScreen" className="screen disabled">
-                <AdminView/>
+                <ManagerView/>
             </div>
             <div id="employeeScreen" className="screen disabled">
                 employee

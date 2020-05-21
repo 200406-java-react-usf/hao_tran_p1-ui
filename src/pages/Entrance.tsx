@@ -179,7 +179,7 @@ function Entrance() {
 
                         </div>
                         <div id="cube-face-5" className="cube-face neon" onClick={loadEmployee}>
-                            <div id='face6' className="cube-title hidden">EMPLOYEE</div>
+                            <div id='face6' className="cube-title special-employee hidden">EMPLOYEE</div>
                             <div className="loginWrapper-ready hidden  neon">
                                 <LoginForm resetFunction={resetFunction} transitFunction={transitFunction} />
                             </div>

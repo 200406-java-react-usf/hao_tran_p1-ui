@@ -16,5 +16,9 @@ export async function getReimbByUniqueKey(key: string, value: string) {
 }
 
 export async function updateReimb(updatedReimb: Reimb) {
-    return await Client.put('/reimbs', updatedReimb);
+    return await Client.post('/reimbs', updatedReimb);
+}
+
+export async function getReimbFilter(query:any) {
+    return await Client.post('/reimbs/filter', query);
 }

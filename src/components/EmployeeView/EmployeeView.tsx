@@ -14,7 +14,7 @@ interface ManagerProps {
     authUser: User;
 }
 
-function ManagerView(props: ManagerProps) {
+function EmployeeView(props: ManagerProps) {
     let date = (new Date()).toString();
     // let mockReimbs = [
     //     new Reimb(1, 100, date, date, 'text', 'reciept', 'testadmin', 'resv-test', 'pending', 'food'),
@@ -330,4 +330,4 @@ function ManagerView(props: ManagerProps) {
 
 }
 
-export default ManagerView;
+export default EmployeeView;
