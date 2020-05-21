@@ -1,18 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
 import "../../style/admin.scss";
-import { Alert } from '@material-ui/lab';
 import { getUserByUniqueKey } from "../../remote/user-service"
 
 import { addNewUser, updateUser, deleteUserById } from '../../remote/user-service';
 import { User } from '../../dtos/user';
-import { NewUser } from '../../dtos/new-user';
 import { Redirect } from 'react-router-dom';
-import { searchUseAction } from '../../actions/search-user-action';
+import { logoutAction } from '../../actions/logout-action';
 
 interface AdminProps {
     authUser: User;
-    searchUser: User;
+    logoutAction: ()=>void;
 }
 
 function AdminView(props: AdminProps) {
@@ -107,7 +105,6 @@ function AdminView(props: AdminProps) {
         deleteBtn.classList.remove("action-btn-selected");
     }
     let search = async (e: any) => {
-        await searchUseAction("username", usernameSearch);
         let searchresult = await getUserByUniqueKey("username", usernameSearch);
         let SearchedUser: User = { ...searchresult.data }
         setUserOnEdit(SearchedUser);
@@ -210,11 +207,13 @@ function AdminView(props: AdminProps) {
     const [redirect, setRedirect] = useState(false);
 
     let returnHome = async function () {
+        props.logoutAction();
+        localStorage.clear();
         setRedirect(true);
     }
     return (
         <>
-            {redirect ? <Redirect to="/" /> : null}
+            {redirect ? <Redirect to="/" />: null}
             <div>
                 <div className="user-bar">
                     <div className="bar-text">USERNAME: </div>

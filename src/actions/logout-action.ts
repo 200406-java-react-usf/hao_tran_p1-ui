@@ -1,43 +1,30 @@
 import { Dispatch } from "redux"
-import { authenticate } from "../remote/auth-service"
+import { logout } from "../remote/auth-service"
+import { loginActionTypes } from "./login-action";
 
-export const loginActionTypes = {
-    SUCCESSFUL_LOGIN: 'SUCCESSFUL_LOGIN',
-    BAD_REQUEST: 'BAD_REQUEST',
-    INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
+export const logoutActionTypes = {
+    SUCCESSFUL_LOGOUT: 'SUCCESSFUL_LOGOUT',
     INTERNAL_SERVER_ERROR: 'INTERNAL_SERVER_ERROR'
 }
 
-export const loginAction = (username: string, password: string) => async (dispatch: Dispatch) => {
+export const logoutAction = () => async (dispatch: Dispatch) => {
 
     try {
-
-        let authUser = await authenticate(username, password);
+        let loggedOut = await logout();
         dispatch({
-            type: loginActionTypes.SUCCESSFUL_LOGIN,
-            payload: authUser
+            type: logoutActionTypes.SUCCESSFUL_LOGOUT,
+            payload: loggedOut
         });
 
+        dispatch({
+            type: loginActionTypes.SUCCESSFUL_LOGIN,
+            payload: loggedOut
+        })
     } catch (e) {
-
-        let status = e.response.status;
-        if (status === 400) {
-            dispatch({
-                type: loginActionTypes.BAD_REQUEST,
-                payload: e.response.data.message
-            });
-        } else if (status === 401) {
-            dispatch({
-                type: loginActionTypes.INVALID_CREDENTIALS,
-                payload: e.response.data.message
-            });
-        } else {
-            dispatch({
-                type: loginActionTypes.INTERNAL_SERVER_ERROR,
-                payload: e.response.data.message || 'Uh oh! We could not reach the server!'
-            });
-        }
-
+        dispatch({
+            type: logoutActionTypes.INTERNAL_SERVER_ERROR,
+            payload: e.response.data.message
+        })
     }
 
 }

@@ -5,9 +5,8 @@ import { User } from '../dtos/user';
 import { Hidden } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 
-
-
 function Entrance() {
+    
     const [readyState, setReadyState] = useState(false);
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))

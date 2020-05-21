@@ -34,6 +34,7 @@ function LoginForm(props: ILoginProps) {
     let login = async (e: any) => {
         props.transitFunction(e);
         props.loginAction(username, password);
+        //props.loginAction("testemployee", "testemployee");
     }
 
 

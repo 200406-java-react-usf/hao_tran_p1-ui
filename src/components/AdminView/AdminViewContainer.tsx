@@ -1,18 +1,17 @@
 import { IState } from "../../reducers";
 import { connect } from "react-redux";
+import { logoutAction } from "../../actions/logout-action";
 import AdminView from "./AdminView";
-import { searchUseAction } from "../../actions/search-user-action";
 
 const mapStateToProps = (state: IState) => {
     return {
         authUser: state.login.authUser,
-        searchUser: state.searchUser.searchUser,
         errorMessage: state.login.errorMessage
     }
 }
 const mapDispatchToProps = {
-    searchUseAction
+    logoutAction
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(AdminView);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminView);

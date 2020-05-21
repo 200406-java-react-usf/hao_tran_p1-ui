@@ -1,11 +1,5 @@
 import { User } from "../dtos/user";
 import { Client } from "./client";
-import { NewUser } from "../dtos/new-user";
-
-export async function register(newUser: NewUser) {
-    let response = await Client.post('/users', newUser);
-    return await response.data;
-}
 
 export async function getUsers() {
     return await Client.get('/users');

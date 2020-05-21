@@ -1,17 +1,16 @@
 import { IState } from "../../reducers";
 import { connect } from "react-redux";
 import ManagerView from "./ManagerView";
-import { searchUseAction } from "../../actions/search-user-action";
+import { logoutAction } from "../../actions/logout-action";
 
 const mapStateToProps = (state: IState) => {
     return {
         authUser: state.login.authUser,
-        searchUser: state.searchUser.searchUser,
         errorMessage: state.login.errorMessage
     }
 }
 const mapDispatchToProps = {
-    searchUseAction
+    logoutAction
 }
 
 

@@ -1,7 +1,7 @@
-import { IState } from "../../reducers";
+import { IState } from "../reducers";
 import { connect } from "react-redux";
-import EmployeeView from "./EmployeeView";
-import { logoutAction } from "../../actions/logout-action";
+import RoleDisplay from "./RoleDisplay";
+import { logoutAction } from "../actions/logout-action";
 
 
 const mapStateToProps = (state: IState) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(EmployeeView);
+export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(RoleDisplay);

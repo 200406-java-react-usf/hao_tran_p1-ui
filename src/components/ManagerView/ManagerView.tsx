@@ -8,10 +8,10 @@ import { getReimbs, getReimbFilter, getReimbById, updateReimb } from '../../remo
 import { Reimb } from '../../dtos/reimb';
 import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
-import { searchUseAction } from '../../actions/search-user-action';
 
 interface ManagerProps {
     authUser: User;
+    logoutAction: ()=>void;
 }
 
 function ManagerView(props: ManagerProps) {
@@ -202,7 +202,7 @@ function ManagerView(props: ManagerProps) {
     let showDetail = async (e: any) => {
         let id = e.currentTarget.id;
         let result = await getReimbById(id)
-        await setreimbCurrent(result.data);
+        setreimbCurrent(result.data);
         let detail = document.getElementById("reimb-detail") as HTMLDivElement;
         let table = document.getElementById("reimb-table") as HTMLDivElement;
         let home = document.getElementById("reimb-bar") as HTMLDivElement;
@@ -268,6 +268,8 @@ function ManagerView(props: ManagerProps) {
     const [redirect, setRedirect] = useState(false);
 
     let returnHome = async function () {
+        props.logoutAction();
+        localStorage.clear();
         setRedirect(true);
     }
     return (
@@ -294,7 +296,7 @@ function ManagerView(props: ManagerProps) {
                             <div id="typeFilter-other" className="dropdown-option" onClick={selectTable}>OTHER</div>
                         </div>
                     </div>
-                    <div id="search" className="action-btn neon" onClick={search}>search</div>
+                    <div id="search" className="action-btn neon" onClick={search}>SEARCH</div>
 
                 </div>
                 <div id="reimb-detail" className="reimb-detail neon disabled">

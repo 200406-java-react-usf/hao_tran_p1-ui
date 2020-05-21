@@ -6,14 +6,15 @@ import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 import AdminView from '../AdminView/AdminViewContainer'
 import ManagerView from '../ManagerView/ManagerViewContainer'
+import EmployeeView from '../EmployeeView/EmployeeViewContainer'
 
 interface IRoleProps {
     authUser: User;
+    logoutAction: ()=>void;
 }
 
 function RoleDisplay(props: IRoleProps) {
     const [roleName] = useState(props.authUser.role_name);
-    //const [roleName] = useState("manager");
 
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -55,9 +56,9 @@ function RoleDisplay(props: IRoleProps) {
     }
     let renderNewRole = async () => {
         let roleDisplay: string;
-        if (roleName == "admin"){
+        if (roleName == "admin") {
             roleDisplay = "ADMINISTRATOR"
-        }else{
+        } else {
             roleDisplay = roleName.toUpperCase()
         }
         timeout(500);
@@ -66,10 +67,12 @@ function RoleDisplay(props: IRoleProps) {
     let showAccess = async () => {
         let loadingScreen = document.getElementById("loadingScreen") as HTMLDivElement;
         loadingScreen.classList.add("disabled");
-        let roleInterface = document.getElementById(roleName+"Screen") as HTMLDivElement;
+        let roleInterface = document.getElementById(roleName + "Screen") as HTMLDivElement;
         roleInterface.classList.remove("disabled");
     }
-    renderNewRole()
+    if (roleName) {
+        renderNewRole()
+    }
     return (
         <>
             <div id="loadingScreen" className="screen">
@@ -77,13 +80,13 @@ function RoleDisplay(props: IRoleProps) {
                 <div id="loadingScreen-role" className="loadingScreen-role" onClick={showAccess}></div>
             </div>
             <div id="adminScreen" className="screen disabled">
-                <AdminView/>
+                {roleName == "admin" ? <AdminView /> : null}
             </div>
             <div id="managerScreen" className="screen disabled">
-                <ManagerView/>
+                {roleName == "manager" ? <ManagerView /> : null}
             </div>
             <div id="employeeScreen" className="screen disabled">
-                employee
+                {roleName == "employee" ? <EmployeeView /> : null}
             </div>
         </>
     );
