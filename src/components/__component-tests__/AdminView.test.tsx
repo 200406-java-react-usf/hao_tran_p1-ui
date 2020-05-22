@@ -10,7 +10,7 @@ const props: AdminProps = {
     //@ts-ignore
     authUser: null as User,
     //@ts-ignore
-    logoutAction: null,
+    logoutAction: null
 }
 
 describe('Adminview renders', () => {
