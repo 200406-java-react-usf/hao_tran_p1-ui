@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, SyntheticEvent } from 'react';
 import "../../style/login.scss";
 import { Alert } from '@material-ui/lab';
 
@@ -8,7 +8,7 @@ import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 import { loginAction } from '../../actions/login-action';
 
-interface ILoginProps {
+export interface ILoginProps {
     authUser: User;
     errorMessage: string;
     loginAction: (username: string, password: string) => void;
@@ -34,7 +34,6 @@ function LoginForm(props: ILoginProps) {
     let login = async (e: any) => {
         props.transitFunction(e);
         props.loginAction(username, password);
-        //props.loginAction("testemployee", "testemployee");
     }
 
 

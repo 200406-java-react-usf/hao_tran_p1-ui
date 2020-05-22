@@ -8,7 +8,7 @@ import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 import { logoutAction } from '../../actions/logout-action';
 
-interface AdminProps {
+export interface AdminProps {
     authUser: User;
     logoutAction: ()=>void;
 }

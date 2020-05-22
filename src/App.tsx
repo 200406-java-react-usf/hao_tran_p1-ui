@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 
 import Entrance from './pages/Entrance';
-import RoleDisplayPage from './pages/RoleDisplayContainer';
+import RoleDisplayPage from './pages/RoleDisplay';
 
 function App() {
 

@@ -9,7 +9,7 @@ import { Reimb } from '../../dtos/reimb';
 import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 
-interface ManagerProps {
+export interface ManagerProps {
     authUser: User;
     logoutAction: ()=>void;
 }

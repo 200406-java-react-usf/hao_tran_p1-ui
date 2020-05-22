@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SyntheticEvent } from 'react';
 import "../../style/employee.scss";
 import { Alert } from '@material-ui/lab';
 
@@ -8,7 +8,7 @@ import { Reimb } from '../../dtos/reimb';
 import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 
-interface EmployeeProps {
+export interface EmployeeProps {
     authUser: User;
     logoutAction: ()=>void;
 }
@@ -90,8 +90,8 @@ function EmployeeView(props: EmployeeProps) {
                         <div className="reimb-container" key={reimb.reimb_id} id={(reimb.reimb_id).toString()} onClick={showDetail}>
                             <div className="reimb-short">{reimb.reimb_id}</div>
                             <div className="reimb-short">{reimb.amount}</div>
-                            <div className="reimb">{submitted}</div>
-                            <div className="reimb">{resolved}</div>
+                            <div className="reimb">{formatDate(reimb.submitted)}</div>
+                            <div className="reimb">{formatDate(reimb.resolved)}</div>
                             <div className="reimb">{reimb.author}</div>
                             <div className="reimb">{reimb.reimb_status}</div>
                             <div className="reimb">{reimb.reimb_type}</div>
@@ -277,8 +277,8 @@ function EmployeeView(props: EmployeeProps) {
                                 </div>
                             </div>
                             <div className="detail-row">
-                                <div className="reimb" id="submitted">{submitted}</div>
-                                <div className="reimb" id="resolved">{resolved}</div>
+                                <div className="reimb" id="submitted">SUBMITTED {submitted}</div>
+                                <div className="reimb" id="resolved">RESOLVED {resolved}</div>
                             </div>
                             <div className="detail-row">
                                 <div className="reimb" id="author">AUTHOR: {author}</div>

@@ -16,3 +16,7 @@ phases:
   post_build:
     commands:
       - aws s3 sync ./build s3://hao-tran-p1-ui
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'build'
