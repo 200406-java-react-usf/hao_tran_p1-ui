@@ -11,7 +11,7 @@ import { Redirect } from 'react-router-dom';
 
 export interface ManagerProps {
     authUser: User;
-    logoutAction: ()=>void;
+    logoutAction: () => void;
 }
 
 function ManagerView(props: ManagerProps) {
@@ -276,6 +276,7 @@ function ManagerView(props: ManagerProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
+                <div className="scanlines"></div>
                 <div className="user-bar">
                     <div id="statusFilter" className="reimb-action-btn neon">
                         <p className="filterText">ALL</p>

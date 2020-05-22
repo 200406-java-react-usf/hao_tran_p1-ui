@@ -10,7 +10,7 @@ import { logoutAction } from '../../actions/logout-action';
 
 export interface AdminProps {
     authUser: User;
-    logoutAction: ()=>void;
+    logoutAction: () => void;
 }
 
 function AdminView(props: AdminProps) {
@@ -213,8 +213,9 @@ function AdminView(props: AdminProps) {
     }
     return (
         <>
-            {redirect ? <Redirect to="/" />: null}
+            {redirect ? <Redirect to="/" /> : null}
             <div>
+                <div className="scanlines"></div>
                 <div className="user-bar">
                     <div className="bar-text">USERNAME: </div>
                     <input className="user-input"
@@ -232,7 +233,7 @@ function AdminView(props: AdminProps) {
 
                 <div className="user-table neon">
                     <div className="table-row">
-                        <div className = "unselectable">ID</div>
+                        <div className="unselectable">ID</div>
                         <input className="user-input"
                             disabled
                             value={ers_user_id}
@@ -241,7 +242,7 @@ function AdminView(props: AdminProps) {
                         />
                     </div>
                     <div className="table-row">
-                        <div className = "unselectable">USERNAME</div>
+                        <div className="unselectable">USERNAME</div>
                         <input className="user-input"
                             disabled
                             onChange={updateFormField}
@@ -250,7 +251,7 @@ function AdminView(props: AdminProps) {
                             placeholder=""
                         /></div>
                     <div className="table-row">
-                        <div className = "unselectable">PASSWORD</div>
+                        <div className="unselectable">PASSWORD</div>
                         <input className="user-input"
                             disabled
                             onChange={updateFormField}
@@ -260,7 +261,7 @@ function AdminView(props: AdminProps) {
                         />
                     </div>
                     <div className="table-row">
-                        <div className = "unselectable">FIRST NAME</div>
+                        <div className="unselectable">FIRST NAME</div>
                         <input className="user-input"
                             disabled
                             onChange={updateFormField}
@@ -270,7 +271,7 @@ function AdminView(props: AdminProps) {
                         />
                     </div>
                     <div className="table-row">
-                        <div className = "unselectable">LAST NAME</div>
+                        <div className="unselectable">LAST NAME</div>
                         <input className="user-input"
                             disabled
                             onChange={updateFormField}
@@ -280,7 +281,7 @@ function AdminView(props: AdminProps) {
                         />
                     </div>
                     <div className="table-row">
-                        <div className = "unselectable">EMAIL</div>
+                        <div className="unselectable">EMAIL</div>
                         <input className="user-input"
                             disabled
                             onChange={updateFormField}
@@ -290,7 +291,7 @@ function AdminView(props: AdminProps) {
                         />
                     </div>
                     <div className="table-row">
-                        <div className = "unselectable">ROLE</div>
+                        <div className="unselectable">ROLE</div>
                         <input className="user-input"
                             disabled
                             onChange={updateFormField}

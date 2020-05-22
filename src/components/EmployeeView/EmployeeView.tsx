@@ -10,7 +10,7 @@ import { Redirect } from 'react-router-dom';
 
 export interface EmployeeProps {
     authUser: User;
-    logoutAction: ()=>void;
+    logoutAction: () => void;
 }
 
 function EmployeeView(props: EmployeeProps) {
@@ -220,7 +220,7 @@ function EmployeeView(props: EmployeeProps) {
 
 
     }
-    let submitNew = async() => {
+    let submitNew = async () => {
         let newReimb = new Reimb(
             reimbCurrent.reimb_id,
             amount,
@@ -252,6 +252,7 @@ function EmployeeView(props: EmployeeProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
+                <div className="scanlines"></div>
                 <div className="user-bar">
 
                     <div id="search" className="action-btn neon" onClick={search}>SEARCH</div>

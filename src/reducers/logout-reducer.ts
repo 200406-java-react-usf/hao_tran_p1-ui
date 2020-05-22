@@ -13,8 +13,6 @@ const initialState: ILogoutState = {
 export const logoutReducer = (state: ILogoutState = initialState, action: AnyAction) => {
     switch (action.type) {
         case logoutActionTypes.SUCCESSFUL_LOGOUT:
-            console.log('successful logout');
-            console.log(`aciton payload: ${action.payload}`);
             return {
                 ...state, 
                 authUser: action.payload

@@ -15,6 +15,11 @@
     transition: all 500ms linear;
 }
 
+.viewport-selected {
+    background-color: black;
+    transition: all 500ms linear;
+}
+
 .viewport-square {
     border-radius: 3px !important;
     transition: all 500ms linear;
@@ -209,7 +214,7 @@
     margin-top: 75px;
     line-height: 150px;
     text-align: center;
-    color: white;
+    color: $white;
     font-size: 55px;
     opacity: 1;
     transition: all 500ms linear;
@@ -312,4 +317,128 @@
     opacity: 1;
     z-index: 1;
     transition: all 1000ms linear;
+}
+
+.container {
+    position: absolute;
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+}
+
+.line-holder {
+    display: block;
+    margin: auto;
+}
+
+.glitch {
+    color: $white;
+    position: relative;
+    font-size: 150px;
+    margin: 60px 200px;
+    text-align: center;
+    animation: glitch 5s 5s infinite;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 rgb(209, 196, 20);
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+}
+
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -5px 0 rgb(0, 255, 136);
+    background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+}
+
+@keyframes glitch {
+    1% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+    3% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+    12% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+    13% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    15% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+    59% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+    61% {
+        transform: rotateX(10deg) skewX(90deg);
+    }
+    62% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
+}
+
+@keyframes noise-1 {
+    $steps: 30;
+    @for $i from 1 through $steps {
+        #{percentage($i*(1/$steps))} {
+            $top: random(100);
+            $bottom: random(101 - $top);
+            clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+        }
+    }
+}
+
+@keyframes noise-2 {
+    $steps: 30;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            $top: random(100);
+            $bottom: random(101 - $top);
+            clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+        }
+    }
+}
+
+@keyframes fudge {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(0px, 2%);
+    }
+}
+
+.glow {
+    @extend .glitch;
+    text-shadow: 0 0 1000px rgb(147, 226, 250);
+    color: transparent;
+    position: absolute;
+    top: 0;
+}
+
+@keyframes glitch-2 {
+    1% {
+        transform: rotateX(10deg) skewX(70deg);
+    }
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
+    }
 }

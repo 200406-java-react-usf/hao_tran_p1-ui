@@ -1,16 +1,21 @@
-$blue: rgb(51, 79, 141);
-$blue-fade: rgb(51, 79, 141);
+$blue: rgb(51, 131, 141);
+$blue-fade: rgb(47, 85, 83);
 $white: rgb(226, 230, 240);
 $white-shadow: rgba(184, 239, 255, 0.6);
 $background: rgba(0, 0, 0);
 $transparent: rgba(0, 0, 0, 0);
 $white-fade: rgb(226, 230, 240, 0.5);
+@font-face {
+    font-family: 'Sony_Sketch_EF';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sony_Sketch_EF'), url('./font/Sony_Sketch_EF.woff') format('woff');
+}
+
 body {
-    font-size: 1em;
-    line-height: 1.5em;
-    /* 16px/24px default */
+    font-size: 20px;
     background: $background;
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "Sony_Sketch_EF", Arial, Helvetica, sans-serif;
     font-weight: 200;
 }
 
@@ -64,4 +69,20 @@ body {
 
 .unselectable {
     user-select: none;
+}
+
+.scanlines {
+    overflow: hidden;
+    mix-blend-mode: difference;
+}
+
+.scanlines::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: repeating-linear-gradient( to bottom, transparent 0%, rgba(255, 255, 255, 0.05) .5%, transparent 1%);
+    animation: fudge 7s ease-in-out alternate infinite;
 }

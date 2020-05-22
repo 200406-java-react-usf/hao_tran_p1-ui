@@ -22,8 +22,8 @@ function RoleDisplay(props: IRoleProps) {
     let randomizeTextAni = async (text: string, id: string) => {
         let mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let target = text;
-        let speed = 12;
-        let increment = 10;
+        let speed = 20;
+        let increment = 15;
         let frameOrder = 0;
         let stri = 0;
         let block = "";
@@ -75,8 +75,9 @@ function RoleDisplay(props: IRoleProps) {
     }
     return (
         <>
-            <div id="loadingScreen" className="screen">
-                <div className="loadingScreen-title" onClick={showAccess}>------------WELCOME------------</div>
+        {!props.authUser? <Redirect to="/" />:null }
+            <div id="loadingScreen" className="screen glitch-container">
+                <div className="loadingScreen-title" onClick={showAccess}>----   WELCOME   ----</div>
                 <div id="loadingScreen-role" className="loadingScreen-role" onClick={showAccess}></div>
             </div>
             <div id="adminScreen" className="screen disabled">

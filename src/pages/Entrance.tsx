@@ -3,10 +3,10 @@ import "../style/entrance.scss";
 import LoginForm from '../components/LoginForm/LoginFormContainer'
 import { User } from '../dtos/user';
 import { Hidden } from '@material-ui/core';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link, useHistory } from 'react-router-dom';
 
 function Entrance() {
-    
+
     const [readyState, setReadyState] = useState(false);
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -14,7 +14,7 @@ function Entrance() {
     let stopAni = async (e: any) => {
         let cube = document.getElementById("cube") as HTMLDivElement;
         let viewport = document.getElementById("viewport-cube") as HTMLDivElement;
-
+        viewport.classList.add("viewport-selected");
         let face1 = document.getElementById("face1") as HTMLDivElement;
         let face2 = document.getElementById("face2") as HTMLDivElement;
         let face6 = document.getElementById("face6") as HTMLDivElement;
@@ -96,6 +96,7 @@ function Entrance() {
     const [resetFunction] = useState(() => {
         return reset
     })
+    let history = useHistory();
     const [redirect, setRedirect] = useState(false);
     const closeMenu = async (e: any) => {
         e.stopPropagation();
@@ -109,7 +110,7 @@ function Entrance() {
         transit.classList.remove("transit-wrapper-inactive");
         transit.classList.remove("hidden");
         transit.classList.add("transit-wrapper-active");
- 
+
         await timeout(500);
         transit.classList.remove("transit-wrapper-active");
         transit.classList.add("transit-wrapper-final1");
@@ -128,33 +129,46 @@ function Entrance() {
         transit.classList.remove("transit-wrapper-line");
         transit.classList.add("transit-wrapper-final3");
         viewport.classList.add("viewport-final");
-        await timeout (1000);
+        await timeout(1000);
         setRedirect(true);
+        history.push('/roledisplay')
     }
     const [transitFunction] = useState(() => {
         return closeMenu
     })
     return (
         <>
-        {redirect ? <Redirect to = "/roledisplay"/> : null}
             <div className="wrapper">
+                <div className="scanlines"></div>
+                <div className="container">
+                    <div className="glitch" data-text="EMPLOYEE">EMPLOYEE</div>
+                    <div className="glow">EMPLOYEE</div>
+
+                    <div className="glitch" data-text="REIMBURSMENT">REIMBURSMENT</div>
+                    <div className="glow">REIMBURSMENT</div>
+
+                    <div className="glitch" data-text="SYSTEM">SYSTEM</div>
+                    <div className="glow">SYSTEM</div>
+
+                </div>
+
                 <div id="transit" className="transit-wrapper-inactive  neon"></div>
                 <div id="viewport-cube" className="viewport neon" onClick={stopAni}>
                     <div id="cube-inner" className="cube-inner  cube-ani-2">
                         <div id="cube-face-1-a" className="cube-face-inner neon">
 
-                            </div>
+                        </div>
                         <div id="cube-face-2-a" className="cube-face-inner neon">
 
-                            </div>
+                        </div>
                         <div id="cube-face-3-a" className="cube-face-inner neon">
 
-                            </div>
+                        </div>
                         <div id="cube-face-4-a" className="cube-face-inner neon">
 
-                            </div>
+                        </div>
                         <div id="cube-face-5-a" className="cube-face-inner neon">
-                            </div>
+                        </div>
                         <div id="cube-face-6-a" className="cube-face-inner neon">
                         </div>
                     </div>
