@@ -102,10 +102,8 @@ function EmployeeView(props: EmployeeProps) {
             }
         }
         let readData = async () => {
-            console.log(action);
             if (action == "detail" || action == "new") {
                 if (reimbCurrent) {
-                    console.log("reset");
                     setReimbId(reimbCurrent.reimb_id);
                     setAmount(reimbCurrent.amount);
                     setSubmitted(formatDate(reimbCurrent.submitted));
@@ -176,13 +174,14 @@ function EmployeeView(props: EmployeeProps) {
         search();
         let detail = document.getElementById("reimb-detail") as HTMLDivElement;
         let table = document.getElementById("reimb-table") as HTMLDivElement;
+        let home = document.getElementById("reimb-bar") as HTMLDivElement;
 
         detail.classList.add("disabled");
         table.classList.remove("disabled");
+        home.classList.remove("disabled");
     }
     let updateAmount = async (e: any) => {
         neonAni(e);
-        console.log(e.currentTarget.value);
         setAmount(+e.currentTarget.value);
     }
     let updateFormField = (e: any) => {
@@ -289,8 +288,8 @@ function EmployeeView(props: EmployeeProps) {
                                     </div>}
                             </div>
                             <div className="detail-row">
-                                <div className="reimb" id="submitted">SUBMITTED {submitted}</div>
-                                <div className="reimb" id="resolved">RESOLVED {resolved}</div>
+                                <div className="reimb" id="submitted">SUBMITTED: {submitted}</div>
+                                <div className="reimb" id="resolved">RESOLVED: {resolved}</div>
                             </div>
                             <div className="detail-row">
                                 <div className="reimb" id="author">AUTHOR: {author}</div>

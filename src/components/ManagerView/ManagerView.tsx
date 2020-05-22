@@ -42,14 +42,19 @@ function ManagerView(props: ManagerProps) {
     }
 
     let formatDate = function (dt: Date) {
-        let date = new Date(dt);
-        let month = '' + (date.getMonth() + 1);
-        let day = '' + date.getDate();
-        if (month.length < 2)
-            month = '0' + month;
-        if (day.length < 2)
-            day = '0' + day;
-        return [month, day].join('-');
+        if (dt) {
+            let date = new Date(dt);
+            let month = '' + (date.getMonth() + 1);
+            let day = '' + date.getDate();
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+            return [month, day].join('-');
+        }
+        else {
+            return "---"
+        }
 
     }
     useEffect(() => {
@@ -57,19 +62,12 @@ function ManagerView(props: ManagerProps) {
         let fetchData = async () => {
             if (reimbList) {
                 for (let reimb of reimbList) {
-                    let resolved: string;
-                    if (!reimb.resolved) {
-                        resolved = "";
-                    }
-                    else {
-                        resolved = formatDate(reimb.resolved);
-                    }
                     reimbArr.push(
                         <div className="reimb-container" key={reimb.reimb_id} id={(reimb.reimb_id).toString()} onClick={showDetail}>
                             <div className="reimb-short">{reimb.reimb_id}</div>
                             <div className="reimb-short">{reimb.amount}</div>
-                            <div className="reimb">{resolved}</div>
-                            <div className="reimb">{resolved}</div>
+                            <div className="reimb">{formatDate(reimb.submitted)}</div>
+                            <div className="reimb">{formatDate(reimb.resolved)}</div>
                             <div className="reimb">{reimb.author}</div>
                             <div className="reimb">{reimb.reimb_status}</div>
                             <div className="reimb">{reimb.reimb_type}</div>
@@ -239,9 +237,11 @@ function ManagerView(props: ManagerProps) {
         search();
         let detail = document.getElementById("reimb-detail") as HTMLDivElement;
         let table = document.getElementById("reimb-table") as HTMLDivElement;
+        let home = document.getElementById("reimb-bar") as HTMLDivElement;
 
         detail.classList.add("disabled");
         table.classList.remove("disabled");
+        home.classList.remove("disabled");
     }
 
     let updateDeny = async (e: any) => {
@@ -261,9 +261,11 @@ function ManagerView(props: ManagerProps) {
         search();
         let detail = document.getElementById("reimb-detail") as HTMLDivElement;
         let table = document.getElementById("reimb-table") as HTMLDivElement;
+        let home = document.getElementById("reimb-bar") as HTMLDivElement;
 
         detail.classList.add("disabled");
         table.classList.remove("disabled");
+        home.classList.remove("disabled");
     }
     const [redirect, setRedirect] = useState(false);
 

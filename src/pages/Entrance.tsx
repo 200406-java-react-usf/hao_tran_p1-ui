@@ -205,6 +205,7 @@ function Entrance() {
                 
 
             </div>
+            <div className="scanlines"></div>
 
         </>
     );

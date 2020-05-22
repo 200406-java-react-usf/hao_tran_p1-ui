@@ -45,7 +45,10 @@
 }
 
 .dropdown-content .dropdown-option:hover {
-    background-color: $background;
+    color: $white;
+    box-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue inset;
+    // text-shadow: 0 0 2px $white, 0 0 5px $white, 0 0 10px $white, 0 0 20px $blue, 0 0 40px $blue, 0 0 45px $blue, 0 0 50px $blue, 0 0 75px $blue;
+    transition: all 500ms linear;
 }
 
 .reimb-action-btn:hover .dropdown-content {
