@@ -12,10 +12,17 @@ $white-fade: rgb(226, 230, 240, 0.5);
     src: local('Sony_Sketch_EF'), url('./font/Sony_Sketch_EF.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'FalconsFont';
+    font-style: normal;
+    font-weight: normal;
+    src: local('FalconsFont'), url('./font/FalconsFont.woff') format('woff');
+}
+
 body {
     font-size: 20px;
     background: $background;
-    font-family: "Sony_Sketch_EF", Arial, Helvetica, sans-serif;
+    font-family: "Sony_Sketch_EF", "FalconsFont", Helvetica, sans-serif;
     font-weight: 200;
 }
 
@@ -74,6 +81,7 @@ body {
 .scanlines {
     overflow: hidden;
     mix-blend-mode: difference;
+    pointer-events: none;
 }
 
 .scanlines::before {

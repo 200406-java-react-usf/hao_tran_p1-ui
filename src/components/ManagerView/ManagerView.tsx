@@ -276,7 +276,6 @@ function ManagerView(props: ManagerProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
-                <div className="scanlines"></div>
                 <div className="user-bar">
                     <div id="statusFilter" className="reimb-action-btn neon">
                         <p className="filterText">ALL</p>
@@ -328,6 +327,8 @@ function ManagerView(props: ManagerProps) {
                     <div id="home-btn" className="reimb-home-btn neon" onClick={returnHome} >HOME</div>
                 </div>
             </div>
+            <div className="scanlines"></div>
+
         </>
     );
 

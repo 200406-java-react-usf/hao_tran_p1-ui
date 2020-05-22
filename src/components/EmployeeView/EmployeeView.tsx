@@ -252,7 +252,6 @@ function EmployeeView(props: EmployeeProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
-                <div className="scanlines"></div>
                 <div className="user-bar">
 
                     <div id="search" className="action-btn neon" onClick={search}>SEARCH</div>
@@ -267,15 +266,27 @@ function EmployeeView(props: EmployeeProps) {
                         <form className="reimb-container">
                             <div className="detail-row">
                                 <div className="reimb">ID: {reimbId} </div>
-                                <div className="reimb">AMOUNT: $
+                                {(reimbCurrent.reimb_status == "pending") ?
+                                    <div className="reimb">AMOUNT: $
                                 <input
-                                        className="reimb-input"
-                                        onChange={updateAmount}
-                                        value={amount}
-                                        id="amount" type="text"
-                                        placeholder=""
-                                    />
-                                </div>
+                                            className="reimb-input"
+                                            onChange={updateAmount}
+                                            value={amount}
+                                            id="amount" type="text"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                    :
+                                    <div className="reimb">AMOUNT: $
+                                <input
+                                            disabled
+                                            className="reimb-input"
+                                            onChange={updateAmount}
+                                            value={amount}
+                                            id="amount" type="text"
+                                            placeholder=""
+                                        />
+                                    </div>}
                             </div>
                             <div className="detail-row">
                                 <div className="reimb" id="submitted">SUBMITTED {submitted}</div>
@@ -285,17 +296,30 @@ function EmployeeView(props: EmployeeProps) {
                                 <div className="reimb" id="author">AUTHOR: {author}</div>
                                 <div className="reimb" id="resolver">RESOLVER: {nulltoBlank(resolver)}</div>
                             </div>
-                            <textarea id="description" className="detail-description-textarea" value={description} onChange={updateFormField} />
+                            {(reimbCurrent.reimb_status == "pending") ?
+                                <textarea id="description" className="detail-description-textarea" value={description} onChange={updateFormField} />
+                                :
+                                <textarea id="description" className="detail-description-textarea" value={description} onChange={updateFormField} readOnly />}
+
+
                             <div className="detail-row">
                                 <div className="reimb" id="status">STATUS: {status}</div>
                                 <div className="reimb">
                                     <div className="unselectable">TYPE:
-                                       <select className="reimb-input-dropdown" id="type" value={type} onChange={updateFormField}>
-                                            <option value="lodging">LODGING</option>
-                                            <option value="travel">TRAVEL</option>
-                                            <option value="food">FOOD</option>
-                                            <option value="other">OTHER</option>
-                                        </select>
+                                    {(reimbCurrent.reimb_status == "pending") ?
+                                            <select className="reimb-input-dropdown" id="type" value={type} onChange={updateFormField}>
+                                                <option value="lodging">LODGING</option>
+                                                <option value="travel">TRAVEL</option>
+                                                <option value="food">FOOD</option>
+                                                <option value="other">OTHER</option>
+                                            </select> :
+
+                                            <select className="reimb-input-dropdown" id="type" value={type} disabled>
+                                                <option value="lodging">LODGING</option>
+                                                <option value="travel">TRAVEL</option>
+                                                <option value="food">FOOD</option>
+                                                <option value="other">OTHER</option>
+                                            </select>}
                                     </div>
 
                                 </div>
@@ -328,6 +352,8 @@ function EmployeeView(props: EmployeeProps) {
             <div id="reimb-bar" className="reimb-bar">
                 <div id="home-btn" className="reimb-home-btn neon" onClick={returnHome} >HOME</div>
             </div>
+            <div className="scanlines"></div>
+
         </>
     );
 

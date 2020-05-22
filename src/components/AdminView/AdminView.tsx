@@ -215,7 +215,6 @@ function AdminView(props: AdminProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
-                <div className="scanlines"></div>
                 <div className="user-bar">
                     <div className="bar-text">USERNAME: </div>
                     <input className="user-input"
@@ -307,6 +306,8 @@ function AdminView(props: AdminProps) {
                     <div id="cancel-btn" className="submit-btn neon" onClick={returnHome}>HOME</div>
                 </div>
             </div>
+            <div className="scanlines"></div>
+
         </>
     );
 

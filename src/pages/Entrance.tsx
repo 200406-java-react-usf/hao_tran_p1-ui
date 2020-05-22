@@ -139,8 +139,7 @@ function Entrance() {
     return (
         <>
             <div className="wrapper">
-                <div className="scanlines"></div>
-                <div className="container">
+                {/* <div className="container">
                     <div className="glitch" data-text="EMPLOYEE">EMPLOYEE</div>
                     <div className="glow">EMPLOYEE</div>
 
@@ -149,8 +148,8 @@ function Entrance() {
 
                     <div className="glitch" data-text="SYSTEM">SYSTEM</div>
                     <div className="glow">SYSTEM</div>
-
-                </div>
+                    <div className="scanlines"></div>
+                </div> */}
 
                 <div id="transit" className="transit-wrapper-inactive  neon"></div>
                 <div id="viewport-cube" className="viewport neon" onClick={stopAni}>
@@ -203,8 +202,10 @@ function Entrance() {
                     </div>
 
                 </div>
+                
 
             </div>
+
         </>
     );
 
