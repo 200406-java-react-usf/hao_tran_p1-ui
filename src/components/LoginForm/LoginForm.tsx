@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, SyntheticEvent } from 'react';
 import "../../style/login.scss";
 import { Alert } from '@material-ui/lab';
 
@@ -18,20 +18,10 @@ export interface ILoginProps {
 
 function LoginForm(props: ILoginProps) {
 
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [ready, setReady] = useState(false);
-
-    useEffect(
-        () => {
-            if (props.authUser) {
-                console.log("login");
-                props.transitFunction(ready)
-            } else {
-                console.log("error");
-            }
-        }, [ready]);
+    const [errorMessage, setErrorMessage] = useState(false);
 
     let updateUsername = (e: any) => {
         setUsername(e.currentTarget.value);
@@ -42,14 +32,13 @@ function LoginForm(props: ILoginProps) {
     }
 
     let login = async (e: any) => {
+        props.transitFunction(e);
         props.loginAction(username, password);
-        setReady(e);
     }
 
 
     return (
         <>
-            {errorMessage ? <Redirect to="/error" /> : null}
             <div >
                 <form className="form-body neon-inner">
                     <div className="form-title">USERNAME</div>
