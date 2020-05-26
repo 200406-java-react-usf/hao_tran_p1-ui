@@ -24,6 +24,8 @@ function AdminView(props: AdminProps) {
     const [email, setEmail] = useState('');
     const [role_name, setRole] = useState('');
 
+    const [errorMessage] = useState(props.errorMessage);
+
     //@ts-ignore
     let mockUser = new User("", '', '', '', '', '', '');
 
@@ -35,7 +37,6 @@ function AdminView(props: AdminProps) {
 
     const [currentAction, setcurrentAction] = useState('');
 
-    const [errorMessage, setErrorMessage] = useState(false);
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
@@ -216,6 +217,7 @@ function AdminView(props: AdminProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
+            {errorMessage ? <div> {errorMessage} </div> : null}
                 <div className="user-bar">
                     <div className="bar-text">USERNAME: </div>
                     <input className="user-input"

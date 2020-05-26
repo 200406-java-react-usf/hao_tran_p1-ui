@@ -40,7 +40,8 @@
     font-size: 50px;
     line-height: 100px;
     opacity: 0;
-    animation: welcome 2.5s forwards;
+    animation: welcome forwards;
+    animation-duration: 5s;
 }
 
 @keyframes welcome {
@@ -57,8 +58,8 @@
     text-align: center;
     height: 100px;
     width: 100%;
+    margin: auto;
     top: 30%;
-    font-size: 50px;
-    line-height: 100px;
     font-size: 100px;
+    line-height: 100px;
 }

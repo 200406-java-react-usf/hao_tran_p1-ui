@@ -81,13 +81,14 @@ function ManagerView(props: ManagerProps) {
         let showdetail = async () => {
             if (reimbCurrent) {
                 let detail: any[] = [];
+                let approve = document.getElementById("approve-btn") as HTMLDivElement;
+                let deny = document.getElementById("deny-btn") as HTMLDivElement;
                 if (reimbCurrent.reimb_status == "pending") {
-                    let approve = document.getElementById("approve-btn") as HTMLDivElement;
-                    let deny = document.getElementById("deny-btn") as HTMLDivElement;
-
                     approve.classList.remove("disabled");
                     deny.classList.remove("disabled");
-
+                }else{
+                    approve.classList.add("disabled");
+                    deny.classList.add("disabled");
                 }
                 detail.push(
                     <div>
@@ -278,6 +279,8 @@ function ManagerView(props: ManagerProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
+            {errorMessage ? <div> {errorMessage} </div> : null}
+
                 <div className="user-bar">
                     <div id="statusFilter" className="reimb-action-btn neon">
                         <p className="filterText">ALL</p>
