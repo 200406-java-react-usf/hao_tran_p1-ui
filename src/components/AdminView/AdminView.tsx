@@ -10,7 +10,6 @@ import { logoutAction } from '../../actions/logout-action';
 
 export interface AdminProps {
     authUser: User;
-    errorMessage: string;
     logoutAction: () => void;
 }
 
@@ -294,11 +293,13 @@ function AdminView(props: AdminProps) {
                     </div>
                     <div className="table-row">
                         <div className="unselectable">ROLE</div>
-                        <select className="reimb-input-dropdown" id="role_name" value={role_name} onChange={updateFormField}>
-                            <option value="admin">ADMIN</option>
-                            <option value="manager">MANAGER</option>
-                            <option value="user">USER</option>
-                        </select>
+                        <input className="user-input"
+                            disabled
+                            onChange={updateFormField}
+                            value={role_name}
+                            id="role_name" type="text"
+                            placeholder=""
+                        />
                     </div>
                 </div>
                 <div className="user-bar">

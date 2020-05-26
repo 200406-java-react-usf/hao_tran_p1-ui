@@ -10,7 +10,6 @@ import { Redirect } from 'react-router-dom';
 
 export interface EmployeeProps {
     authUser: User;
-    errorMessage: string;
     logoutAction: () => void;
 }
 
