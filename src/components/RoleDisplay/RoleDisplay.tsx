@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Alert } from '@material-ui/lab';
-import "../../style/roleDisplay.scss";
+
 import { User } from '../../dtos/user';
 import { Redirect } from 'react-router-dom';
 import AdminView from '../AdminView/AdminViewContainer'
@@ -10,11 +10,10 @@ import EmployeeView from '../EmployeeView/EmployeeViewContainer'
 
 interface IRoleProps {
     authUser: User;
-    logoutAction: () => void;
+    logoutAction: ()=>void;
 }
 
 function RoleDisplay(props: IRoleProps) {
-
     const [roleName] = useState(props.authUser.role_name);
 
     let timeout = function (ms: number) {
@@ -23,7 +22,7 @@ function RoleDisplay(props: IRoleProps) {
     let randomizeTextAni = async (text: string, id: string) => {
         let mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let target = text;
-        let speed = 10;
+        let speed = 20;
         let increment = 15;
         let frameOrder = 0;
         let stri = 0;
@@ -53,7 +52,6 @@ function RoleDisplay(props: IRoleProps) {
             let display = document.getElementById(id) as HTMLDivElement;
             display.innerHTML = fixed + block;
             block = "";
-
         }
     }
     let renderNewRole = async () => {
@@ -63,13 +61,13 @@ function RoleDisplay(props: IRoleProps) {
         } else {
             roleDisplay = roleName.toUpperCase()
         }
-        //timeout(500);
+        timeout(500);
         randomizeTextAni(roleDisplay, "loadingScreen-role");
     }
     let showAccess = async () => {
         let loadingScreen = document.getElementById("loadingScreen") as HTMLDivElement;
-        let roleInterface = document.getElementById(roleName + "Screen") as HTMLDivElement;
         loadingScreen.classList.add("disabled");
+        let roleInterface = document.getElementById(roleName + "Screen") as HTMLDivElement;
         roleInterface.classList.remove("disabled");
     }
     if (roleName) {
@@ -77,11 +75,10 @@ function RoleDisplay(props: IRoleProps) {
     }
     return (
         <>
-            {!props.authUser ? <Redirect to="/" /> : null}
-            <div id="loadingScreen" className="screen">
-                <div id="loadingScreen-role" className="loadingScreen-role" onClick={showAccess}></div>
-
+        {!props.authUser? <Redirect to="/" />:null }
+            <div id="loadingScreen" className="screen glitch-container">
                 <div className="loadingScreen-title" onClick={showAccess}>----   WELCOME   ----</div>
+                <div id="loadingScreen-role" className="loadingScreen-role" onClick={showAccess}></div>
             </div>
             <div id="adminScreen" className="screen disabled">
                 {roleName == "admin" ? <AdminView /> : null}

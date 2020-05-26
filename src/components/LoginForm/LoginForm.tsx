@@ -40,8 +40,6 @@ function LoginForm(props: ILoginProps) {
     return (
         <>
             <div >
-            {errorMessage ? <div> {errorMessage} </div> : null}
-
                 <form className="form-body neon-inner">
                     <div className="form-title">USERNAME</div>
                     <input className="form-input"

@@ -23,6 +23,7 @@ function EmployeeView(props: EmployeeProps) {
     const [reimbList, setReimbList] = useState(null as Reimb[]);
     //@ts-ignore
     const [reimbsDisplay, setReimbsDisplay] = useState(null as any[]);
+    const [errorMessage, setErrorMessage] = useState(false);
 
     //@ts-ignore
     const [reimbCurrent, setreimbCurrent] = useState(null as Reimb);
@@ -44,8 +45,6 @@ function EmployeeView(props: EmployeeProps) {
     const [author, setAuthor] = useState('');
     const [resolver, setResolver] = useState('');
     const [action, setAction] = useState("default");
-
-    const [errorMessage] = useState(props.errorMessage);
 
     let timeout = function (ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -252,8 +251,6 @@ function EmployeeView(props: EmployeeProps) {
         <>
             {redirect ? <Redirect to="/" /> : null}
             <div>
-            {errorMessage ? <div> {errorMessage} </div> : null}
-
                 <div className="user-bar">
 
                     <div id="search" className="action-btn neon" onClick={search}>SEARCH</div>
